@@ -1,0 +1,12 @@
+*.ipynb
+*.ckpt
+*.pyc
+*.pkl
+*.json
+*.csv
+*.txt
+*.ipynb_checkpoints
+*.pdf
+*.png
+*.npy
+__pycache__
