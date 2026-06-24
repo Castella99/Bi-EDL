@@ -94,9 +94,9 @@ def main(cfg, data_path) :
             EarlyStopping(monitor="val/mean_auroc", patience=10, mode="max"),
             LearningRateMonitor(logging_interval="step"),
         ],
-        limit_train_batches=2,
-        limit_val_batches=2,
-        limit_test_batches=2,
+        # limit_train_batches=2,
+        # limit_val_batches=2,
+        # limit_test_batches=2,
     )
 
     trainer.fit(

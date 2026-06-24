@@ -11,5 +11,6 @@
 *.npy
 *.log
 *.DS_Store
+MICCAI2026/
 logs/
 __pycache__
