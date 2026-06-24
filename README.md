@@ -94,21 +94,11 @@ This prioritizes vision–language alignment in early training and gradually shi
 
 ## Architecture
 
-```
-                          ┌─────────────────────────────────┐
-  Image ──► ViT-B/16 ──► │ I2T Cross-Attention             │──► MLP ──► S^I2T (B, T=28)
-                          │                                 │              │
-  Text  ──► BioBERT  ──► │ T2I Cross-Attention             │──► MLP ──► S^T2I (B, T=28)
-  (28 prompts:            └─────────────────────────────────┘              │
-   14 positive                                                       Fusion Gater (w)
-   14 negative)                                                            │
-                                                              z⁺_k, z⁻_k per disease (B, 14)
-                                                                           │
-                                       ┌───────────────────────────────────┤
-                                       ▼               ▼                   ▼
-                                  I2T MCQ CE      T2I MCQ CE         Beta-EDL Loss
-                                   (L_I2T)         (L_T2I)             (L_EDL)
-```
+![Bi-EDL Framework](Figure.png)
+
+**(a)** Evidence formation under InfoNCE/CE vs. EDL loss — EDL regularizes incorrect-direction evidence toward Beta(1,1), shifting the uncertainty distribution to better separate correct from failed predictions.
+**(b)** Training pipeline: bidirectional cross-attention (I2T + T2I) over query–candidate pairs produces alignment scores, jointly optimized with MCQ cross-entropy and EDL losses via a Fusion Gater.
+**(c)** Inference pipeline: fixed presence/absence prompts per disease yield per-disease uncertainty scores for selective prediction.
 
 **Backbone:** CARZero (ViT-B/16 image encoder + BioClinicalMPBERT text encoder + dual cross-attention fusion modules)
 

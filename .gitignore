@@ -7,7 +7,6 @@
 *.txt
 *.ipynb_checkpoints
 *.pdf
-*.png
 *.npy
 *.log
 *.DS_Store
