@@ -155,10 +155,10 @@ All five methods are applied post-hoc to the same (positive, negative) logit pai
 
 | Method | Score | Notes |
 |---|---|---|
-| **MSP** | $1 - \max(p^+, p^-)$ | Maximum Softmax Probability baseline |
-| **Energy** | $-\log(\exp(p^+) + \exp(p^-))$ | Free energy of the logit pair |
-| **MaxLogit** | $-\max(p^+, p^-)$ | Logit-level analogue of MSP |
-| **EDL** | $2 \,/\, (\text{softplus}(p^+)+1 + \text{softplus}(p^-)+1)$ | Beta vacuity; model's native uncertainty |
+| **MSP** | $1 - \max\,\text{softmax}(z^+, z^-)$ | Maximum Softmax Probability baseline |
+| **Energy** | $-\log(\exp(z^+) + \exp(z^-))$ | Free energy of the logit pair |
+| **MaxLogit** | $-\max(z^+, z^-)$ | Logit-level analogue of MSP |
+| **EDL** | $2 \,/\, (\text{softplus}(z^+)+1 + \text{softplus}(z^-)+1)$ | Beta vacuity; model's native uncertainty |
 | **ODIN** | $1 - \max\,\sigma(x + \varepsilon \cdot \text{sign}(\nabla \mathcal{L}))$ | Input perturbation (Liang et al., ICLR 2018) |
 
 ---
