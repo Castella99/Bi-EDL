@@ -31,7 +31,8 @@ The resulting uncertainty is directly usable for **selective prediction**: low-u
 **(b)** Training pipeline: bidirectional cross-attention (I2T + T2I) over query–candidate pairs produces alignment scores, jointly optimized with MCQ cross-entropy and EDL losses via a Fusion Gater.
 **(c)** Inference pipeline: fixed presence/absence prompts per disease yield per-disease uncertainty scores for selective prediction.
 
-**Backbone:** CARZero (ViT-B/16 image encoder + BioClinicalMPBERT text encoder + dual cross-attention fusion modules)
+**Backbone:** CARZero (ViT-B/16 image encoder + BioClinicalMPBERT text encoder)
+
 
 ---
 
